@@ -5,20 +5,26 @@ type SearchBarProps = {
 };
 
 function SearchBar({ value, onChange, onSearch }: SearchBarProps) {
-  return (
-    <div>
-      <input
-        type="text"
-        placeholder="Buscar Pokémon..."
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-      />
+ return (
+  <div className="search-container">
+    <input
+  type="text"
+  placeholder="Digite o nome do Pokémon..."
+  value={value}
+  onChange={(event) => onChange(event.target.value)}
+  onKeyDown={(event) => {
 
-      <button onClick={onSearch}>
-        Buscar
-      </button>
-    </div>
-  );
+    if (event.key === "Enter") {
+      onSearch();
+    }
+  }}
+/>
+
+   <button className="button" onClick={onSearch}>
+  Buscar
+</button>
+  </div>
+);
 }
 
 export default SearchBar;

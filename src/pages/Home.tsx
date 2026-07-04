@@ -1,28 +1,39 @@
+import type { Pokemon } from "../types/pokemon";
+
 import { useEffect, useState } from "react";
 
 import Title from "../components/Title";
 import SearchBar from "../components/SearchBar";
 import PokemonCard from "../components/PokemonCard";
-import PokemonDetails from "../components/PokemonDetails";
 import AskAI from "../components/AskAI";
 
 import { getPokemon } from "../services/pokeApi";
 
 function Home() {
 
-  const [pokemon, setPokemon] = useState<any>(null);
+  const [pokemon, setPokemon] = useState<Pokemon | null>(null);
 
   const [pokemonName, setPokemonName] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
+  const [error, setError] = useState("");
+
 async function handleSearch() {
   if (!pokemonName.trim()) return;
+
+  setLoading(true);
+  setError("");
 
   try {
     const data = await getPokemon(pokemonName.toLowerCase());
 
     setPokemon(data);
   } catch (error) {
-    alert("Pokémon não encontrado!");
+    setPokemon(null);
+    setError("Pokémon não encontrado!");
+  } finally {
+    setLoading(false);
   }
 }
 
@@ -42,7 +53,7 @@ async function handleSearch() {
 
 
   return (
-    <div>
+  <div className="container">
       <Title />
 
       <SearchBar
@@ -51,11 +62,16 @@ async function handleSearch() {
   onSearch={handleSearch}
 />
 
-      <PokemonCard pokemon={pokemon} />
+{loading ? (
+  <p className="loading">Carregando...</p>
+) : error ? (
+  <p className="error">{error}</p>
+) : (
+  <PokemonCard pokemon={pokemon} />
+)}
 
-      <PokemonDetails />
-
-      <AskAI />
+      <AskAI pokemon={pokemon} />
+      
     </div>
   );
 }

@@ -1,75 +1,59 @@
-# React + TypeScript + Vite
+# 🧠 Pokédex Inteligente
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma aplicação desenvolvida com React + TypeScript que permite pesquisar Pokémon utilizando a PokéAPI e fazer perguntas sobre eles utilizando a IA do Google Gemini.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- TypeScript
+- Vite
+- Axios
+- PokéAPI
+- Google Gemini API
 
-## React Compiler
+## ✨ Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🔍 Pesquisa de Pokémon pelo nome
+- 📷 Exibição da imagem oficial
+- 📏 Altura e peso
+- 🏷️ Tipos do Pokémon
+- 🤖 Perguntas inteligentes utilizando IA
+- ⌨️ Suporte à tecla Enter para pesquisa e perguntas
+- ⚠️ Tratamento de erros
+- ⏳ Indicador de carregamento
 
-## Expanding the ESLint configuration
+## 📦 Instalação
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Clone o projeto:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+git clone URL_DO_SEU_REPOSITORIO
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Instale as dependências:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
 ```
+
+Crie um arquivo `.env`:
+
+```env
+VITE_GEMINI_API_KEY=SUA_CHAVE
+```
+
+Execute:
+
+```bash
+npm run dev
+```
+
+## 📸 Demonstração
+
+![Pokédex Inteligente](public/screenshot.png)
+
+## 👨‍💻 Autor
+
+Matheus Guilherme
+
+Linkedin: https://www.linkedin.com/in/mguilhermesmp/ 
