@@ -50,7 +50,7 @@ npm run dev
 
 ## 📸 Demonstração
 
-![Pokédex Inteligente](public/screenshot.png)
+![Pokédex Inteligente](public/screenshot.PNG)
 
 ## 👨‍💻 Autor
 
